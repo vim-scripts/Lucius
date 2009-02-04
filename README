@@ -1,0 +1,9 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2536
+
+This started out by combining parts of several dark color schemes, including oceandeep (vimscript #368), peaksea (vimscript #760), wombat (vimscript #1778), moria (vimscript #1464), and zenburn (vimscript #415). Since then, it has been tweaked to what it is today and works well in both light and dark environments.
+
+For the 256 color terminal support, guicolorscheme.vim (vimscript #1809) was used. The settings were further modified to match the GUI version as best possible.
+
+For v3.5, colorsupport.vim (vimscript #2682) was applied to this color scheme. Some of the results from this were merged in with the other color choices from before to make the cterm version more like the gui.
+
+A light color scheme was added in v4.0. The default is still to use the dark version, but users can choose which to use by setting the g:lucius_style variable to either "light" or "dark".
