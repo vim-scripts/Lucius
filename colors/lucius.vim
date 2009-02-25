@@ -1,3 +1,17 @@
+" Vim color file
+" Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
+" Last Change:  2/25/2009
+" Version: 2.1
+"
+" GUI / 256 color terminal
+"
+" I started out trying to combine my favorite parts of other schemes and ended
+" up with this (oceandeep, moria, peaksea, wombat, zenburn).
+"
+" This file also tries to have descriptive comments for each higlighting group
+" so it is easy to understand what each part does.
+
+
 set background=dark
 hi clear
 if exists("syntax_on")
@@ -5,13 +19,15 @@ if exists("syntax_on")
 endif
 let g:colors_name="lucius"
 
-" Other blue: 3eb8e5
-" Other green: 92d400
+" blue: 3eb8e5
+" green: 92d400
+
 
 " Base color
 " ----------
-hi Normal           guifg=#ececdc           guibg=#242424
-hi Normal           ctermfg=230             ctermbg=234
+hi Normal           guifg=#e0e0e0           guibg=#242424
+hi Normal           ctermfg=254             ctermbg=235
+
 
 " Comment Group
 " -------------
@@ -204,13 +220,13 @@ hi ErrorMsg         guifg=#ee0000           guibg=NONE              gui=none
 hi ErrorMsg         ctermfg=196             ctermbg=NONE            cterm=none
 " column separating vertically split windows
 hi VertSplit        guifg=#444444           guibg=#444444
-hi VertSplit        ctermfg=237             ctermbg=237
+hi VertSplit        ctermfg=238             ctermbg=238
 " columns where signs are displayed (used in IDEs)
 hi SignColumn       guifg=#9fafaf           guibg=#181818           gui=none
 hi SignColumn       ctermfg=145             ctermbg=233             cterm=none
 " line numbers
 hi LineNr           guifg=#857b6f           guibg=#444444
-hi LineNr           ctermfg=101             ctermbg=237
+hi LineNr           ctermfg=101             ctermbg=238
 " match parenthesis, brackets
 hi MatchParen       guifg=#00ff00           guibg=NONE              gui=none
 hi MatchParen       ctermfg=46              ctermbg=NONE            cterm=none
@@ -221,8 +237,8 @@ hi MoreMsg          ctermfg=29                                      cterm=none
 hi ModeMsg          guifg=#90ee90           guibg=NONE              gui=none
 hi ModeMsg          ctermfg=120             ctermbg=NONE            cterm=none
 " the 'more' prompt when output takes more than one line
-hi NonText          guifg=#857b6f                                   gui=none
-hi NonText          ctermfg=101                                     cterm=none
+hi NonText          guifg=#444444                                   gui=none
+hi NonText          ctermfg=238                                     cterm=none
 " the hit-enter prompt (show more output) and yes/no questions
 hi Question         guifg=fg                                        gui=none
 hi Question         ctermfg=fg                                      cterm=none
@@ -261,7 +277,7 @@ hi DiffText         ctermfg=fg
 " -----
 " line used for closed folds
 hi Folded           guifg=#a0a8b0           guibg=#404040           gui=none
-hi Folded           ctermfg=145             ctermbg=237             cterm=none
+hi Folded           ctermfg=145             ctermbg=238             cterm=none
 " column on side used to indicated open and closed folds
 hi FoldColumn       guifg=#b0d0e0           guibg=#305060           gui=none
 hi FoldColumn       ctermfg=152             ctermbg=23              cterm=none
@@ -279,7 +295,7 @@ hi Search                                   ctermbg=66              cterm=none
 " ----------
 " normal item in popup
 hi Pmenu            guifg=#f6f3e8           guibg=#444444           gui=none
-hi Pmenu            ctermfg=230             ctermbg=237             cterm=none
+hi Pmenu            ctermfg=254             ctermbg=238             cterm=none
 " selected item in popup
 hi PmenuSel         guifg=#000000           guibg=#cae682           gui=none
 hi PmenuSel         ctermfg=16              ctermbg=186             cterm=none
@@ -294,18 +310,18 @@ hi PMenuThumb                               ctermbg=247             cterm=none
 " Status Line
 " -----------
 " status line for current window
-hi StatusLine       guifg=#f6f3e8           guibg=#444444           gui=none
-hi StatusLine       ctermfg=230             ctermbg=237             cterm=none
+hi StatusLine       guifg=#e0e0e0           guibg=#444444           gui=none
+hi StatusLine       ctermfg=254             ctermbg=238             cterm=none
 " status line for non-current windows
-hi StatusLineNC     guifg=#857b6f           guibg=#444444           gui=none
-hi StatusLineNC     ctermfg=101             ctermbg=237             cterm=none
+hi StatusLineNC     guifg=#777777           guibg=#444444           gui=none
+hi StatusLineNC     ctermfg=244             ctermbg=238             cterm=none
 
 
 " Tab Lines
 " ---------
 " tab pages line, not active tab page label
 hi TabLine          guifg=#b6bf98           guibg=#181818           gui=none
-hi TabLine          ctermfg=144             ctermbg=233             cterm=none
+hi TabLine          ctermfg=244             ctermbg=233             cterm=none
 " tab pages line, where there are no labels
 hi TabLineFill      guifg=#cfcfaf           guibg=#181818           gui=none
 hi TabLineFill      ctermfg=187             ctermbg=233             cterm=none
@@ -317,7 +333,8 @@ hi TabLineSel       ctermfg=254             ctermbg=233             cterm=none
 " ------
 " visual mode selection
 hi Visual                                   guibg=#445566
-hi Visual                                   ctermbg=23
+hi Visual                                   ctermbg=60
 " visual mode selection when vim is 'not owning the selection' (x11 only)
 hi VisualNOS        guifg=fg                                        gui=underline
 hi VisualNOS        ctermfg=fg                                      cterm=underline
+
