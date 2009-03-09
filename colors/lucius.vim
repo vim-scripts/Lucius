@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
-" Last Change:  2/25/2009
-" Version: 2.1
+" Last Change:  03/09/2009
+" Version: 2.2
 "
 " GUI / 256 color terminal
 "
@@ -25,7 +25,7 @@ let g:colors_name="lucius"
 
 " Base color
 " ----------
-hi Normal           guifg=#e0e0e0           guibg=#242424
+hi Normal           guifg=#e4e4e4           guibg=#242424
 hi Normal           ctermfg=254             ctermbg=235
 
 
