@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
-" Last Change:  03/09/2009
-" Version: 2.2
+" Last Modified: Fri Mar 13, 2009  10:23AM
+" Version: 2.3
 "
 " GUI / 256 color terminal
 "
@@ -288,8 +288,8 @@ hi FoldColumn       ctermfg=152             ctermbg=23              cterm=none
 hi IncSearch        guifg=#66ffff                                   gui=reverse
 hi IncSearch        ctermfg=87                                      cterm=reverse
 " hlsearch (last search pattern), also used for quickfix
-hi Search                                   guibg=#607b8b           gui=none
-hi Search                                   ctermbg=66              cterm=none
+hi Search                                    guibg=#ffaa33          gui=none
+hi Search                                    ctermbg=214            cterm=none
 
 " Popup Menu
 " ----------
@@ -332,8 +332,8 @@ hi TabLineSel       ctermfg=254             ctermbg=233             cterm=none
 " Visual
 " ------
 " visual mode selection
-hi Visual                                   guibg=#445566
-hi Visual                                   ctermbg=60
+hi Visual           guifg=NONE              guibg=#445566
+hi Visual           ctermfg=NONE            ctermbg=60
 " visual mode selection when vim is 'not owning the selection' (x11 only)
 hi VisualNOS        guifg=fg                                        gui=underline
 hi VisualNOS        ctermfg=fg                                      cterm=underline
