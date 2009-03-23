@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
-" Last Modified: Fri Mar 13, 2009  10:23AM
-" Version: 2.3
+" Last Modified: Mon Mar 23, 2009  08:08AM
+" Version: 2.4
 "
 " GUI / 256 color terminal
 "
@@ -200,14 +200,14 @@ hi SpellLocal                               ctermbg=14              cterm=underc
 hi Cursor           guifg=bg                guibg=#8ac6f2
 hi Cursor           ctermfg=bg              ctermbg=117
 " like cursor, but used when in IME mode
-hi CursorIM                                 guibg=#96cdcd
-hi CursorIM                                 ctermbg=116
+hi CursorIM         guifg=bg                guibg=#96cdcd
+hi CursorIM         ctermfg=bg              ctermbg=116
 " cursor column
-hi CursorColumn                             guibg=#2d2d2d
-hi CursorColumn                             ctermbg=235
+hi CursorColumn                             guibg=#3d3d4d
+hi CursorColumn     cterm=NONE              ctermbg=236
 " cursor line/row
-hi CursorLine                               guibg=#2d2d2d
-hi CursorLine                               ctermbg=235             
+hi CursorLine                               guibg=#3d3d4d
+hi CursorLine       cterm=NONE              ctermbg=236             
 
 
 " Misc
