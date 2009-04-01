@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
-" Last Modified: Mon Mar 23, 2009  08:08AM
-" Version: 2.4
+" Last Modified: Wed Apr 01, 2009  10:03AM
+" Version: 2.5
 "
 " GUI / 256 color terminal
 "
@@ -219,8 +219,8 @@ hi Directory        ctermfg=114                                     cterm=none
 hi ErrorMsg         guifg=#ee0000           guibg=NONE              gui=none
 hi ErrorMsg         ctermfg=196             ctermbg=NONE            cterm=none
 " column separating vertically split windows
-hi VertSplit        guifg=#444444           guibg=#444444
-hi VertSplit        ctermfg=238             ctermbg=238
+hi VertSplit        guifg=#777777           guibg=#444444           gui=none
+hi VertSplit        ctermfg=244             ctermbg=238             cterm=none
 " columns where signs are displayed (used in IDEs)
 hi SignColumn       guifg=#9fafaf           guibg=#181818           gui=none
 hi SignColumn       ctermfg=145             ctermbg=233             cterm=none
