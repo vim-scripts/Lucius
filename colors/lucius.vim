@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
-" Last Modified: Mon Sep 28, 2009  08:55AM
-" Version: 3.0
+" Last Modified: Wed Oct 21, 2009  11:39AM
+" Version: 3.1
 "
 " GUI / 256 color terminal
 "
@@ -210,8 +210,8 @@ hi CursorIM         ctermfg=bg              ctermbg=116
 hi CursorColumn     guifg=NONE              guibg=#202438           gui=none
 hi CursorColumn     ctermfg=NONE            ctermbg=236             cterm=none
 " cursor line/row
-hi CursorLine       gui=NONE                guibg=#202438           gui=bold
-hi CursorLine       cterm=NONE              ctermbg=236             cterm=bold
+hi CursorLine       gui=NONE                guibg=#202438           gui=none
+hi CursorLine       cterm=NONE              ctermbg=236             cterm=none
 
 
 " Misc
@@ -241,13 +241,13 @@ hi MoreMsg          ctermfg=29                                      cterm=none
 hi ModeMsg          guifg=#76d5f8           guibg=NONE              gui=none
 hi ModeMsg          ctermfg=117             ctermbg=NONE            cterm=none
 " the '~' and '@' and showbreak, '>' double wide char doesn't fit on line
-hi NonText          guifg=#343434                                   gui=none
+hi NonText          guifg=#404040                                   gui=none
 hi NonText          ctermfg=235                                     cterm=none
 " the hit-enter prompt (show more output) and yes/no questions
 hi Question         guifg=fg                                        gui=none
 hi Question         ctermfg=fg                                      cterm=none
 " meta and special keys used with map, unprintable characters
-hi SpecialKey       guifg=#505050
+hi SpecialKey       guifg=#404040
 hi SpecialKey       ctermfg=237
 " titles for output from :set all, :autocmd, etc
 hi Title            guifg=#62bdde                                   gui=none
@@ -303,8 +303,8 @@ hi Search                                    ctermbg=214            cterm=none
 hi Pmenu            guifg=#e0e0e0           guibg=#303840           gui=none
 hi Pmenu            ctermfg=253             ctermbg=233             cterm=none
 " selected item in popup
-hi PmenuSel         guifg=#cae682           guibg=#303840           gui=bold
-hi PmenuSel         ctermfg=186             ctermbg=237             cterm=bold
+hi PmenuSel         guifg=#cae682           guibg=#505860           gui=none
+hi PmenuSel         ctermfg=186             ctermbg=237             cterm=none
 " scrollbar in popup
 hi PMenuSbar                                guibg=#505860           gui=none
 hi PMenuSbar                                ctermbg=59              cterm=none
