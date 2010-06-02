@@ -207,10 +207,10 @@ hi Cursor           ctermfg=bg              ctermbg=153
 hi CursorIM         guifg=bg                guibg=#96cdcd
 hi CursorIM         ctermfg=bg              ctermbg=116
 " cursor column
-hi CursorColumn     guifg=NONE              guibg=#202438           gui=none
+hi CursorColumn     guifg=NONE              guibg=#404448           gui=none
 hi CursorColumn     ctermfg=NONE            ctermbg=236             cterm=none
 " cursor line/row
-hi CursorLine       gui=NONE                guibg=#202438           gui=none
+hi CursorLine       gui=NONE                guibg=#404448           gui=none
 hi CursorLine       cterm=NONE              ctermbg=236             cterm=none
 
 
@@ -280,10 +280,13 @@ hi DiffText         ctermfg=203             ctermbg=52             cterm=bold
 " Folds
 " -----
 " line used for closed folds
-hi Folded           guifg=#91d6f8           guibg=#363946           gui=none
-hi Folded           ctermfg=117             ctermbg=238             cterm=none
+"hi Folded           guifg=#91d6f8           guibg=#363946           gui=none
+"hi Folded           ctermfg=117             ctermbg=238             cterm=none
+hi Folded           guifg=#d0e0f0           guibg=#202020           gui=none
+hi Folded           ctermfg=117             ctermbg=235             cterm=none
 " column on side used to indicated open and closed folds
 hi FoldColumn       guifg=#91d6f8           guibg=#363946           gui=none
+hi FoldColumn       guifg=#c0c0d0           guibg=#363946           gui=none
 hi FoldColumn       ctermfg=117             ctermbg=238             cterm=none
 
 
