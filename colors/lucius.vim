@@ -1,6 +1,6 @@
 " Lucius vim color file
 " Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
-" Version: 5.01
+" Version: 5.02
 
 hi clear
 if exists("syntax_on")
@@ -316,13 +316,13 @@ elseif &background == 'light'
     " = Light version =
 
     " == Normal color ==
-    hi Normal           guifg=#000000           guibg=#f8f8f8
+    hi Normal           guifg=#000000           guibg=#fafafa
     hi Normal           ctermfg=16              ctermbg=231
 
 
     " == Comments ==
-    hi Comment          guifg=#909090                                   gui=none
-    hi Comment          ctermfg=247                                     cterm=none
+    hi Comment          guifg=#808080                                   gui=none
+    hi Comment          ctermfg=244                                     cterm=none
 
 
     " == Constants ==
@@ -351,98 +351,98 @@ elseif &background == 'light'
     " == Identifiers ==
     " any variable name
     hi Identifier       guifg=#009070                                   gui=none
-    hi Identifier       ctermfg=30                                      cterm=none
+    hi Identifier       ctermfg=29                                      cterm=none
     hi IdentifierBold   guifg=#009070                                   gui=bold
-    hi IdentifierBold   ctermfg=30                                      cterm=bold
+    hi IdentifierBold   ctermfg=29                                      cterm=bold
     " function, method, class
     hi Function         guifg=#009070                                   gui=none
-    hi Function         ctermfg=30                                      cterm=none
+    hi Function         ctermfg=29                                      cterm=none
 
 
     " == Statements ==
     " any statement
-    hi Statement        guifg=#0040a0                                   gui=none
+    hi Statement        guifg=#0050a0                                   gui=none
     hi Statement        ctermfg=25                                      cterm=none
-    hi StatementBold    guifg=#0040a0                                   gui=bold
+    hi StatementBold    guifg=#0050a0                                   gui=bold
     hi StatementBold    ctermfg=25                                      cterm=bold
     " if, then, else
-    hi Conditional      guifg=#0040a0                                   gui=none
+    hi Conditional      guifg=#0050a0                                   gui=none
     hi Conditional      ctermfg=25                                      cterm=none
     " try, catch, throw, raise
-    hi Exception        guifg=#0040a0                                   gui=none
+    hi Exception        guifg=#0050a0                                   gui=none
     hi Exception        ctermfg=25                                      cterm=none
     " for, while, do
-    hi Repeat           guifg=#0040a0                                   gui=none
+    hi Repeat           guifg=#0050a0                                   gui=none
     hi Repeat           ctermfg=25                                      cterm=none
     " case, default
-    hi Label            guifg=#0040a0                                   gui=none
+    hi Label            guifg=#0050a0                                   gui=none
     hi Label            ctermfg=25                                      cterm=none
     " sizeof, +, *
-    hi Operator         guifg=#0040a0                                   gui=none
+    hi Operator         guifg=#0050a0                                   gui=none
     hi Operator         ctermfg=25                                      cterm=none
     " any other keyword
-    hi Keyword          guifg=#0040a0                                   gui=none
+    hi Keyword          guifg=#0050a0                                   gui=none
     hi Keyword          ctermfg=25                                      cterm=none
 
 
     " == Preprocessor ==
     " generic preprocessor
     hi PreProc          guifg=#b07000                                   gui=none
-    hi PreProc          ctermfg=100                                     cterm=none
+    hi PreProc          ctermfg=130                                     cterm=none
     hi PreProcBold      guifg=#b07000                                   gui=bold
-    hi PreProcBold      ctermfg=100                                     cterm=bold
+    hi PreProcBold      ctermfg=130                                     cterm=bold
     " #include
     hi Include          guifg=#b07000                                   gui=none
-    hi Include          ctermfg=100                                     cterm=none
+    hi Include          ctermfg=130                                     cterm=none
     " #define
     hi Define           guifg=#b07000                                   gui=none
-    hi Define           ctermfg=100                                     cterm=none
+    hi Define           ctermfg=130                                     cterm=none
     " same as define
     hi Macro            guifg=#b07000                                   gui=none
-    hi Macro            ctermfg=100                                     cterm=none
+    hi Macro            ctermfg=130                                     cterm=none
     " #if, #else, #endif
     hi PreCondit        guifg=#b07000                                   gui=none
-    hi PreCondit        ctermfg=100                                     cterm=none
+    hi PreCondit        ctermfg=130                                     cterm=none
 
 
     " == Types ==
     " int, long, char
     hi Type             guifg=#007090                                   gui=none
-    hi Type             ctermfg=25                                      cterm=none
+    hi Type             ctermfg=24                                      cterm=none
     hi TypeBold         guifg=#007090                                   gui=bold
-    hi TypeBold         ctermfg=25                                      cterm=bold
+    hi TypeBold         ctermfg=24                                      cterm=bold
     " static, register, volative
     hi StorageClass     guifg=#007090                                   gui=none
-    hi StorageClass     ctermfg=25                                      cterm=none
+    hi StorageClass     ctermfg=24                                      cterm=none
     " struct, union, enum
     hi Structure        guifg=#007090                                   gui=none
-    hi Structure        ctermfg=25                                      cterm=none
+    hi Structure        ctermfg=24                                      cterm=none
     " typedef
     hi Typedef          guifg=#007090                                   gui=none
-    hi Typedef          ctermfg=25                                      cterm=none
+    hi Typedef          ctermfg=24                                      cterm=none
 
 
     " == Special ==
     " any special symbol
-    hi Special          guifg=#7020a0                                   gui=none
-    hi Special          ctermfg=97                                      cterm=none
-    hi SpecialBold      guifg=#7020a0                                   gui=bold
-    hi SpecialBold      ctermfg=97                                      cterm=bold
+    hi Special          guifg=#601090                                   gui=none
+    hi Special          ctermfg=54                                      cterm=none
+    hi SpecialBold      guifg=#601090                                   gui=bold
+    hi SpecialBold      ctermfg=54                                      cterm=bold
     " special character in a constant
-    hi SpecialChar      guifg=#7020a0                                   gui=none
-    hi SpecialChar      ctermfg=97                                      cterm=none
+    hi SpecialChar      guifg=#601090                                   gui=none
+    hi SpecialChar      ctermfg=54                                      cterm=none
     " things you can CTRL-]
-    hi Tag              guifg=#7020a0                                   gui=none
-    hi Tag              ctermfg=97                                      cterm=none
+    hi Tag              guifg=#601090                                   gui=none
+    hi Tag              ctermfg=54                                      cterm=none
     " character that needs attention
-    hi Delimiter        guifg=#7020a0                                   gui=none
-    hi Delimiter        ctermfg=97                                      cterm=none
+    hi Delimiter        guifg=#601090                                   gui=none
+    hi Delimiter        ctermfg=54                                      cterm=none
     " special things inside a comment
-    hi SpecialComment   guifg=#7020a0                                   gui=none
-    hi SpecialComment   ctermfg=97                                      cterm=none
+    hi SpecialComment   guifg=#601090                                   gui=none
+    hi SpecialComment   ctermfg=54                                      cterm=none
     " debugging statements
-    hi Debug            guifg=#7020a0           guibg=NONE              gui=none
-    hi Debug            ctermfg=97              ctermbg=NONE            cterm=none
+    hi Debug            guifg=#601090           guibg=NONE              gui=none
+    hi Debug            ctermfg=54              ctermbg=NONE            cterm=none
 
 
     " == Text Markup ==
@@ -451,19 +451,19 @@ elseif &background == 'light'
     hi Underlined       ctermfg=fg                                      cterm=underline
     " any erroneous construct
     hi Error            guifg=#c82828           guibg=#e8b8b8           gui=none
-    hi Error            ctermfg=9               ctermbg=224            cterm=none
+    hi Error            ctermfg=9               ctermbg=181             cterm=none
     " todo, fixme, note, xxx
     hi Todo             guifg=#907010           guibg=#f0f090           gui=underline
-    hi Todo             ctermfg=136             ctermbg=187             cterm=underline
+    hi Todo             ctermfg=94              ctermbg=229             cterm=underline
     " match parenthesis, brackets
     hi MatchParen       guifg=#f09040           guibg=NONE              gui=bold
     hi MatchParen       ctermfg=209             ctermbg=NONE            cterm=bold
     " the '~' and '@' and showbreak, '>' double wide char doesn't fit on line
-    hi NonText          guifg=#d8e0e8                                   gui=none
-    hi NonText          ctermfg=254                                     cterm=none
+    hi NonText          guifg=#b0c0d0                                   gui=none
+    hi NonText          ctermfg=146                                     cterm=none
     " meta and special keys used with map, unprintable characters
-    hi SpecialKey       guifg=#e0e0e0
-    hi SpecialKey       ctermfg=254
+    hi SpecialKey       guifg=#b0d0c0
+    hi SpecialKey       ctermfg=151
     " titles for output from :set all, :autocmd, etc
     hi Title            guifg=#0080e0                                   gui=none
     hi Title            ctermfg=32                                      cterm=none
@@ -507,8 +507,8 @@ elseif &background == 'light'
     hi Pmenu            guifg=#000000           guibg=#e0e8f0           gui=none
     hi Pmenu            ctermfg=NONE            ctermbg=254             cterm=none
     " selected item in popup
-    hi PmenuSel         guifg=NONE              guibg=#4f8fbf           gui=none
-    hi PmenuSel         ctermfg=NONE            ctermbg=67             cterm=none
+    hi PmenuSel         guifg=#007090           guibg=#c0c8d0           gui=none
+    hi PmenuSel         ctermfg=24              ctermbg=251             cterm=none
     " scrollbar in popup
     hi PMenuSbar                                guibg=#d0d8e0           gui=none
     hi PMenuSbar                                ctermbg=188             cterm=none
@@ -522,14 +522,14 @@ elseif &background == 'light'
     hi StatusLineNC     guifg=#607080           guibg=#b0c0d0           gui=none
     hi StatusLineNC     ctermfg=60              ctermbg=146             cterm=none
     " tab pages line, not active tab page label
-    hi TabLine          guifg=#000000           guibg=#708090           gui=none
-    hi TabLine          ctermfg=16              ctermbg=66              cterm=none
+    hi TabLine          guifg=#000000           guibg=#b0c0d0           gui=none
+    hi TabLine          ctermfg=16              ctermbg=146             cterm=none
     " tab pages line, where there are no labels
-    hi TabLineFill      guifg=#404040           guibg=#708090           gui=none
-    hi TabLineFill      ctermfg=238             ctermbg=66              cterm=none
+    hi TabLineFill      guifg=#606060           guibg=#b0c0d0           gui=none
+    hi TabLineFill      ctermfg=59              ctermbg=146             cterm=none
     " tab pages line, active tab page label
-    hi TabLineSel       guifg=#000000           guibg=#708090           gui=bold
-    hi TabLineSel       ctermfg=16              ctermbg=66              cterm=bold
+    hi TabLineSel       guifg=#007090           guibg=#b0c0d0           gui=bold
+    hi TabLineSel       ctermfg=24              ctermbg=146             cterm=bold
     " column separating vertically split windows
     hi VertSplit        guifg=#708090           guibg=#b0c0d0           gui=none
     hi VertSplit        ctermfg=66              ctermbg=146             cterm=none
@@ -597,7 +597,7 @@ elseif &background == 'light'
     hi WarningMsg       guifg=#e06020                                   gui=none
     hi WarningMsg       ctermfg=166                                     cterm=none
     " current match in the wildmenu completion
-    hi WildMenu         guifg=#2060e0           guibg=#b0c0d0           gui=bold,underline
+    hi WildMenu         guifg=#007090           guibg=#b0c0d0           gui=bold,underline
     hi WildMenu         ctermfg=26              ctermbg=146             cterm=bold
     " color column highlighting
     hi ColorColumn      guifg=NONE              guibg=#f0e0d0           gui=none
@@ -606,6 +606,7 @@ elseif &background == 'light'
 " }}}
 endif
 
+
 " == Vimwiki Colors ==
 hi link VimwikiHeader1 PreProcBold
 hi link VimwikiHeader2 ConstantBold
@@ -613,5 +614,4 @@ hi link VimwikiHeader3 StatementBold
 hi link VimwikiHeader4 IdentifierBold
 hi link VimwikiHeader5 SpecialBold
 hi link VimwikiHeader6 TypeBold
-
 
