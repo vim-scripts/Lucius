@@ -1,6 +1,6 @@
 " Lucius vim color file
 " Maintainer:   Jonathan Filip <jfilip1024@gmail.com>
-" Version: 5.02
+" Version: 5.03
 
 hi clear
 if exists("syntax_on")
@@ -192,8 +192,8 @@ if &background == "dark"
     hi CursorColumn     guifg=NONE              guibg=#404448           gui=none
     hi CursorColumn     ctermfg=NONE            ctermbg=236             cterm=none
     " cursor line/row
-    hi CursorLine       gui=NONE                guibg=#404448           gui=none
-    hi CursorLine       cterm=NONE              ctermbg=236             cterm=none
+    hi CursorLine       guifg=NONE              guibg=#404448           gui=none
+    hi CursorLine       ctermfg=NONE            ctermbg=236             cterm=none
     " visual mode selection
     hi Visual           guifg=NONE              guibg=#364458
     hi Visual           ctermfg=NONE            ctermbg=24
@@ -321,8 +321,8 @@ elseif &background == 'light'
 
 
     " == Comments ==
-    hi Comment          guifg=#808080                                   gui=none
-    hi Comment          ctermfg=244                                     cterm=none
+    hi Comment          guifg=#909090                                   gui=none
+    hi Comment          ctermfg=246                                     cterm=none
 
 
     " == Constants ==
@@ -350,38 +350,38 @@ elseif &background == 'light'
 
     " == Identifiers ==
     " any variable name
-    hi Identifier       guifg=#009070                                   gui=none
+    hi Identifier       guifg=#008060                                   gui=none
     hi Identifier       ctermfg=29                                      cterm=none
-    hi IdentifierBold   guifg=#009070                                   gui=bold
+    hi IdentifierBold   guifg=#008060                                   gui=bold
     hi IdentifierBold   ctermfg=29                                      cterm=bold
     " function, method, class
-    hi Function         guifg=#009070                                   gui=none
+    hi Function         guifg=#008060                                   gui=none
     hi Function         ctermfg=29                                      cterm=none
 
 
     " == Statements ==
     " any statement
-    hi Statement        guifg=#0050a0                                   gui=none
+    hi Statement        guifg=#0050b0                                   gui=none
     hi Statement        ctermfg=25                                      cterm=none
-    hi StatementBold    guifg=#0050a0                                   gui=bold
+    hi StatementBold    guifg=#0050b0                                   gui=bold
     hi StatementBold    ctermfg=25                                      cterm=bold
     " if, then, else
-    hi Conditional      guifg=#0050a0                                   gui=none
+    hi Conditional      guifg=#0050b0                                   gui=none
     hi Conditional      ctermfg=25                                      cterm=none
     " try, catch, throw, raise
-    hi Exception        guifg=#0050a0                                   gui=none
+    hi Exception        guifg=#0050b0                                   gui=none
     hi Exception        ctermfg=25                                      cterm=none
     " for, while, do
-    hi Repeat           guifg=#0050a0                                   gui=none
+    hi Repeat           guifg=#0050b0                                   gui=none
     hi Repeat           ctermfg=25                                      cterm=none
     " case, default
-    hi Label            guifg=#0050a0                                   gui=none
+    hi Label            guifg=#0050b0                                   gui=none
     hi Label            ctermfg=25                                      cterm=none
     " sizeof, +, *
-    hi Operator         guifg=#0050a0                                   gui=none
+    hi Operator         guifg=#0050b0                                   gui=none
     hi Operator         ctermfg=25                                      cterm=none
     " any other keyword
-    hi Keyword          guifg=#0050a0                                   gui=none
+    hi Keyword          guifg=#0050b0                                   gui=none
     hi Keyword          ctermfg=25                                      cterm=none
 
 
@@ -456,8 +456,8 @@ elseif &background == 'light'
     hi Todo             guifg=#907010           guibg=#f0f090           gui=underline
     hi Todo             ctermfg=94              ctermbg=229             cterm=underline
     " match parenthesis, brackets
-    hi MatchParen       guifg=#f09040           guibg=NONE              gui=bold
-    hi MatchParen       ctermfg=209             ctermbg=NONE            cterm=bold
+    hi MatchParen       guifg=NONE              guibg=#a0f0b0           gui=none
+    hi MatchParen       ctermfg=NONE            ctermbg=157             cterm=bold
     " the '~' and '@' and showbreak, '>' double wide char doesn't fit on line
     hi NonText          guifg=#b0c0d0                                   gui=none
     hi NonText          ctermfg=146                                     cterm=none
@@ -483,14 +483,14 @@ elseif &background == 'light'
     hi CursorIM         guifg=bg                guibg=#96cdcd
     hi CursorIM         ctermfg=bg              ctermbg=116
     " cursor column
-    hi CursorColumn     guifg=NONE              guibg=#e8e8e8           gui=none
+    hi CursorColumn     guifg=NONE              guibg=#e0e0e0           gui=none
     hi CursorColumn     ctermfg=NONE            ctermbg=254             cterm=none
     " cursor line/row
-    hi CursorLine       gui=NONE                guibg=#e8e8e8           gui=none
-    hi CursorLine       cterm=NONE              ctermbg=254             cterm=none
+    hi CursorLine       guifg=NONE              guibg=#e0e0e0           gui=none
+    hi CursorLine       ctermfg=NONE            ctermbg=254             cterm=none
     " visual mode selection
-    hi Visual           guifg=NONE              guibg=#d0e0f0
-    hi Visual           ctermfg=NONE            ctermbg=189
+    hi Visual           guifg=NONE              guibg=#c0d8f0
+    hi Visual           ctermfg=NONE            ctermbg=153
     " visual mode selection when vim is not owning the selection (x11 only)
     hi VisualNOS        guifg=fg                                        gui=underline
     hi VisualNOS        ctermfg=fg                                      cterm=underline
