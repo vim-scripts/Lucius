@@ -9,7 +9,7 @@ endif
 let colors_name="lucius"
 
 " Summary:
-" Color scheme with dark and light version (GUI and 256 color terminal).
+" Color scheme with dark and light versions (GUI and 256 color terminal).
 
 " Description:
 " This color scheme was originally created by combining my favorite parts of
@@ -21,10 +21,9 @@ let colors_name="lucius"
 " * moria (vimscript #1464)
 " * zenburn (vimscript #415)
 "
-" It has been tweaked over the years into what it is today. Version 6+ has
-" been revamped a bit from what the color scheme originally was. If you prefer
-" the old style, or the 'blue' version, use the 5Final release. Version 6+
-" only has a light and dark version. The new version tries to unify some of
+" Version 6+ has been revamped a bit from the original color scheme. If you
+" prefer the old style, or the 'blue' version, use the 5Final release. Version
+" 6+ only has a light and dark version. The new version tries to unify some of
 " the colors and also adds more contrast between text and interface.
 "
 " The color scheme is dark, by default. You can change this by setting the
@@ -130,10 +129,10 @@ if g:lucius_style == "dark"
     hi SpellLocal   guisp=#ffa500                   ctermfg=bg     ctermbg=214       gui=undercurl cterm=undercurl
 
     " == Diff ==
-    hi DiffAdd      guifg=NONE      guibg=#304030   ctermfg=NONE   ctermbg=22        gui=none      cterm=none
-    hi DiffChange   guifg=NONE      guibg=#504030   ctermfg=NONE   ctermbg=58        gui=none      cterm=none
-    hi DiffDelete   guifg=NONE      guibg=#403030   ctermfg=NONE   ctermbg=52        gui=none      cterm=none
-    hi DiffText     guifg=#d0c060   guibg=#404030   ctermfg=220    ctermbg=58        gui=bold      cterm=bold
+    hi DiffAdd      guifg=fg        guibg=#304030   ctermfg=fg     ctermbg=22        gui=none      cterm=none
+    hi DiffChange   guifg=fg        guibg=#504030   ctermfg=fg     ctermbg=58        gui=none      cterm=none
+    hi DiffDelete   guifg=fg        guibg=#403030   ctermfg=fg     ctermbg=52        gui=none      cterm=none
+    hi DiffText     guifg=#d0c060   guibg=#504030   ctermfg=220    ctermbg=58        gui=bold      cterm=bold
 
     " == Misc ==
     hi Directory    guifg=#c0e0b0   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
@@ -214,10 +213,10 @@ elseif g:lucius_style == "light"
     hi SpellLocal   guisp=#ffa500                                  ctermbg=221       gui=undercurl cterm=undercurl
 
     " == Diff ==
-    hi DiffAdd      guifg=NONE      guibg=#d0e0d0   ctermfg=NONE   ctermbg=194       gui=none      cterm=none
-    hi DiffChange   guifg=NONE      guibg=#e0d6c0   ctermfg=NONE   ctermbg=187       gui=none      cterm=none
-    hi DiffDelete   guifg=NONE      guibg=#f0d0d0   ctermfg=NONE   ctermbg=224       gui=none      cterm=none
-    hi DiffText     guifg=#905000   guibg=#e0d6c0   ctermfg=94     ctermbg=187       gui=none      cterm=bold
+    hi DiffAdd      guifg=fg        guibg=#d0e0d0   ctermfg=fg     ctermbg=151:      gui=none      cterm=none
+    hi DiffChange   guifg=fg        guibg=#e0d6c0   ctermfg=fg     ctermbg=187       gui=none      cterm=none
+    hi DiffDelete   guifg=fg        guibg=#f0d0d0   ctermfg=fg     ctermbg=181       gui=none      cterm=none
+    hi DiffText     guifg=#c06000   guibg=#e0d6c0   ctermfg=166    ctermbg=187       gui=none      cterm=bold
 
     " == Misc ==
     hi Directory    guifg=#009040   guibg=NONE      ctermfg=29     ctermbg=NONE      gui=none      cterm=none
