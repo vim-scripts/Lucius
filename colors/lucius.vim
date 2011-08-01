@@ -614,12 +614,23 @@ elseif g:lucius_style == "blue"
 endif
 
 " == Vimwiki Colors ==
-hi link VimwikiHeader1 PreProcBold
-hi link VimwikiHeader2 ConstantBold
+"hi link VimwikiHeader1 PreProcBold
+"hi link VimwikiHeader2 ConstantBold
+"hi link VimwikiHeader3 StatementBold
+"hi link VimwikiHeader4 IdentifierBold
+"hi link VimwikiHeader5 SpecialBold
+"hi link VimwikiHeader6 TypeBold
+hi link VimwikiHeader1 ConstantBold
+hi link VimwikiHeader2 IdentifierBold
 hi link VimwikiHeader3 StatementBold
-hi link VimwikiHeader4 IdentifierBold
-hi link VimwikiHeader5 SpecialBold
+hi link VimwikiHeader4 SpecialBold
+hi link VimwikiHeader5 PreProcBold
 hi link VimwikiHeader6 TypeBold
+
+" == Tagbar Colors ==
+hi link TagbarAccessPublic Constant
+hi link TagbarAccessProtected Type
+hi link TagbarAccessPrivate PreProc
 
 " == Commands ==
 command! LuciusLight let g:lucius_style = "light" | colorscheme lucius
