@@ -1,6 +1,6 @@
 " Lucius vim color file
 " Maintainer: Jonathan Filip <jfilip1024@gmail.com>
-" Version: 6.0
+" Version: 6.02
 
 hi clear
 if exists("syntax_on")
@@ -213,10 +213,10 @@ elseif g:lucius_style == "light"
     hi SpellLocal   guisp=#ffa500                                  ctermbg=221       gui=undercurl cterm=undercurl
 
     " == Diff ==
-    hi DiffAdd      guifg=fg        guibg=#d0e0d0   ctermfg=fg     ctermbg=151:      gui=none      cterm=none
+    hi DiffAdd      guifg=fg        guibg=#d0e0d0   ctermfg=fg     ctermbg=151       gui=none      cterm=none
     hi DiffChange   guifg=fg        guibg=#e0d6c0   ctermfg=fg     ctermbg=187       gui=none      cterm=none
     hi DiffDelete   guifg=fg        guibg=#f0d0d0   ctermfg=fg     ctermbg=181       gui=none      cterm=none
-    hi DiffText     guifg=#c06000   guibg=#e0d6c0   ctermfg=166    ctermbg=187       gui=none      cterm=bold
+    hi DiffText     guifg=#d05000   guibg=#e0d6c0   ctermfg=160    ctermbg=187       gui=bold      cterm=bold
 
     " == Misc ==
     hi Directory    guifg=#009040   guibg=NONE      ctermfg=29     ctermbg=NONE      gui=none      cterm=none
