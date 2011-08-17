@@ -1,6 +1,6 @@
 " Lucius vim color file
 " Maintainer: Jonathan Filip <jfilip1024@gmail.com>
-" Version: 6.02
+" Version: 6.03
 
 hi clear
 if exists("syntax_on")
@@ -71,23 +71,23 @@ if g:lucius_style == "dark"
 
     hi Comment      guifg=#606060   guibg=NONE      ctermfg=240    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#b0d090   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
+    hi Constant     guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#c0e0a0   guibg=NONE      ctermfg=150    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Identifier   guifg=#90d0c0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
-    hi BIdentifier  guifg=#90d0c0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
+    hi Identifier   guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=none      cterm=none
+    hi BIdentifier  guifg=#a0e0d0   guibg=NONE      ctermfg=115    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Statement    guifg=#70c0e0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=none      cterm=none
-    hi BStatement   guifg=#70c0e0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
+    hi Statement    guifg=#80d0f0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=none      cterm=none
+    hi BStatement   guifg=#80d0f0   guibg=NONE      ctermfg=74     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi PreProc      guifg=#e0e0b0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
-    hi BPreProc     guifg=#e0e0b0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
+    hi PreProc      guifg=#f0f0b0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=none      cterm=none
+    hi BPreProc     guifg=#f0f0b0   guibg=NONE      ctermfg=187    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Type         guifg=#90c0d0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=none      cterm=none
-    hi BType        guifg=#90c0d0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=bold      cterm=bold
+    hi Type         guifg=#a0d0e0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=none      cterm=none
+    hi BType        guifg=#a0d0e0   guibg=NONE      ctermfg=116    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#b0a0c0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#b0a0c0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=bold      cterm=bold
+    hi Special      guifg=#c0a0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#c0a0d0   guibg=NONE      ctermfg=182    ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Markup ==
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
@@ -129,10 +129,10 @@ if g:lucius_style == "dark"
     hi SpellLocal   guisp=#ffa500                   ctermfg=bg     ctermbg=214       gui=undercurl cterm=undercurl
 
     " == Diff ==
-    hi DiffAdd      guifg=fg        guibg=#304030   ctermfg=fg     ctermbg=22        gui=none      cterm=none
-    hi DiffChange   guifg=fg        guibg=#504030   ctermfg=fg     ctermbg=58        gui=none      cterm=none
-    hi DiffDelete   guifg=fg        guibg=#403030   ctermfg=fg     ctermbg=52        gui=none      cterm=none
-    hi DiffText     guifg=#d0c060   guibg=#504030   ctermfg=220    ctermbg=58        gui=bold      cterm=bold
+    hi DiffAdd      guifg=fg        guibg=#405040   ctermfg=fg     ctermbg=22        gui=none      cterm=none
+    hi DiffChange   guifg=fg        guibg=#605040   ctermfg=fg     ctermbg=58        gui=none      cterm=none
+    hi DiffDelete   guifg=fg        guibg=#504040   ctermfg=fg     ctermbg=52        gui=none      cterm=none
+    hi DiffText     guifg=#d0c060   guibg=#605040   ctermfg=220    ctermbg=58        gui=bold      cterm=bold
 
     " == Misc ==
     hi Directory    guifg=#c0e0b0   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
@@ -155,23 +155,23 @@ elseif g:lucius_style == "light"
 
     hi Comment      guifg=#909090   guibg=NONE      ctermfg=246    ctermbg=NONE      gui=none      cterm=none
 
-    hi Constant     guifg=#007000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
-    hi BConstant    guifg=#007000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=bold
+    hi Constant     guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=none      cterm=none
+    hi BConstant    guifg=#008000   guibg=NONE      ctermfg=22     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Identifier   guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
-    hi BIdentifier  guifg=#008080   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=bold
+    hi Identifier   guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=none      cterm=none
+    hi BIdentifier  guifg=#009090   guibg=NONE      ctermfg=30     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Statement    guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
-    hi BStatement   guifg=#0030b0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=bold
+    hi Statement    guifg=#0030c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=none      cterm=none
+    hi BStatement   guifg=#0030c0   guibg=NONE      ctermfg=19     ctermbg=NONE      gui=bold      cterm=bold
 
     hi PreProc      guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=none
-    hi BPreProc     guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=none      cterm=bold
+    hi BPreProc     guifg=#a06000   guibg=NONE      ctermfg=130    ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Type         guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
-    hi BType        guifg=#0070a0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=bold
+    hi Type         guifg=#0070b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=none      cterm=none
+    hi BType        guifg=#0070b0   guibg=NONE      ctermfg=25     ctermbg=NONE      gui=bold      cterm=bold
 
-    hi Special      guifg=#703080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
-    hi BSpecial     guifg=#703080   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=bold
+    hi Special      guifg=#700090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=none      cterm=none
+    hi BSpecial     guifg=#700090   guibg=NONE      ctermfg=5      ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Markup ==
     hi Underlined   guifg=fg        guibg=NONE      ctermfg=fg     ctermbg=NONE      gui=underline cterm=underline
@@ -180,7 +180,7 @@ elseif g:lucius_style == "light"
     hi MatchParen   guifg=NONE      guibg=#d0f080   ctermfg=NONE   ctermbg=192       gui=none      cterm=none
     hi NonText      guifg=#b0c0d0   guibg=NONE      ctermfg=146    ctermbg=NONE      gui=none      cterm=none
     hi SpecialKey   guifg=#b0d0c0   guibg=NONE      ctermfg=151    ctermbg=NONE      gui=none      cterm=none
-    hi Title        guifg=#0080e0   guibg=NONE      ctermfg=26     ctermbg=NONE      gui=bold      cterm=bold
+    hi Title        guifg=#0060a0   guibg=NONE      ctermfg=26     ctermbg=NONE      gui=bold      cterm=bold
 
     " == Text Selection ==
     hi Cursor       guifg=bg        guibg=#505050   ctermfg=bg     ctermbg=239       gui=none      cterm=none
