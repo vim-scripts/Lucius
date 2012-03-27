@@ -1,5 +1,9 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=2536
 
+Summary:
+Color scheme with dark and light versions (GUI and 256 color terminal).
+
+Description:
 This color scheme was originally created by combining my favorite parts of
 the following color schemes:
 
@@ -9,25 +13,26 @@ the following color schemes:
 * moria (vimscript #1464)
 * zenburn (vimscript #415)
 
-Version 7 has unified the 256 color terminal and GUI versions (the GUI      
-version only uses colors available on the 256 color terminal). The overall  
-colors were also toned down a little bit (light version is now a light gray 
+Version 7 has unified the 256 color terminal and GUI versions (the GUI
+version only uses colors available on the 256 color terminal). The overall
+colors were also toned down a little bit (light version is now a light gray
 instead of white and the dark version is slightly lighter) to make it easier
-on the eyes.                                                                
+on the eyes.
 
 Version 6+ has been revamped a bit from the original color scheme. If you
-prefer the old style, or the 'blue' version, use the 5Final release. Version 6+
-only has a light and dark version. The new version tries to unify some of the
-colors and also adds more contrast between text and interface.
+prefer the old style, or the 'blue' version, use the 5Final release. Version
+6+ only has a light and dark version. The new version tries to unify some of
+the colors and also adds more contrast between text and interface.
 
 The color scheme is dark, by default. You can change this by setting the
-g:lucius_style variable to "light" or "dark". Once the color scheme is
-loaded, you can use the commands "LuciusLight" or "LuciusDark" to change
-schemes quickly.
+g:lucius_style variable to "light", "dark", or "dark_dim". Once the color
+scheme is loaded, you can use the commands "LuciusLight", "LuciusDark", or
+"LuciusDarkDim" to change schemes quickly.
 
-Screenshots of version 7:            
-                                     
-* Dark: http://i.imgur.com/ktdFm.png 
+Screenshots of version 7:
+
+* Dark: http://i.imgur.com/tgUsz.png
+* DarkDim: http://i.imgur.com/0bOCv.png
 * Light: http://i.imgur.com/ndd9A.png
 
 Screenshots of the version 6:
@@ -48,4 +53,3 @@ This color scheme also has custom colors defined for the following plugins:
 
 * vimwiki (vimscript #2226)
 * tagbar (vimscript #3465)
-
