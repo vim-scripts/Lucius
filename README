@@ -1,55 +1,64 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=2536
 
-Summary:
-Color scheme with dark and light versions (GUI and 256 color terminal).
+There are several options available to customize the color scheme to your own tastes. This is particularly useful when you have to work in different environments at different times (home, work, day, night, etc).
 
-Description:
-This color scheme was originally created by combining my favorite parts of
-the following color schemes:
+The GUI and 256 color terminal versions of this color scheme are identical.
 
-* oceandeep (vimscript #368)
-* peaksea (vimscript #760)
-* wombat (vimscript #1778)
-* moria (vimscript #1464)
-* zenburn (vimscript #415)
+You can set up the color scheme by manually setting the options you want or by choosing one of the presets defined. These presets are loaded after you first source the color scheme file and are all commands that start with 'Lucius'.
 
-Version 7 has unified the 256 color terminal and GUI versions (the GUI
-version only uses colors available on the 256 color terminal). The overall
-colors were also toned down a little bit (light version is now a light gray
-instead of white and the dark version is slightly lighter) to make it easier
-on the eyes.
+I have also started to create color schemes for different applications. I have been using them for PuTTY, iTerm2, and Visual Studio, but will keep adding more as I go along. You can find the files for these on Github:
 
-Version 6+ has been revamped a bit from the original color scheme. If you
-prefer the old style, or the 'blue' version, use the 5Final release. Version
-6+ only has a light and dark version. The new version tries to unify some of
-the colors and also adds more contrast between text and interface.
+https://github.com/jonathanfilip/lucius
 
-The color scheme is dark, by default. You can change this by setting the
-g:lucius_style variable to "light", "dark", or "dark_dim". Once the color
-scheme is loaded, you can use the commands "LuciusLight", "LuciusDark", or
-"LuciusDarkDim" to change schemes quickly.
+You can also clone the following repository if you use Pathogen or something similar. It holds the vim color scheme in a 'colors' directory:
 
-Screenshots of version 7:
+https://github.com/jonathanfilip/vim-lucius
 
-* Dark: http://i.imgur.com/tgUsz.png
-* DarkDim: http://i.imgur.com/0bOCv.png
-* Light: http://i.imgur.com/ndd9A.png
 
-Screenshots of the version 6:
+Presets:
 
-* Dark: http://i.imgur.com/IzYcB.png
-* Light: http://i.imgur.com/kfJcm.png
+There are several presets available that will set all the options for you. There are screenshots of each preset below:
 
-Screenshots of the old versions (5Final):
+* LuciusDark (dark default): http://i.imgur.com/LsZbF.png
+* LuciusDarkHighContrast: http://i.imgur.com/e70i9.png
+* LuciusDarkLowContrast: http://i.imgur.com/Hmw8s.png
+* LuciusBlack: http://i.imgur.com/iD4ri.png
+* LuciusBlackHighContrast: http://i.imgur.com/lHvTJ.png
+* LuciusBlackLowContrast: http://i.imgur.com/oZLkg.png
 
-* Dark: http://i.imgur.com/z0bDr.png
-* Light: http://i.imgur.com/BXDiv.png
-* Blue: http://i.imgur.com/Ea1Gq.png 
+* LuciusLight (light default): http://i.imgur.com/soYD8.png
+* LuciusLightLowContrast: http://i.imgur.com/95I86.png
+* LuciusWhite: http://i.imgur.com/wDzkz.png
+* LuciusWhiteLowContrast: http://i.imgur.com/jlUf4.png
 
-colorsupport.vim (vimscript #2682) is used to help with mapping the GUI
-settings to the 256 terminal colors.
+To use the presets, you just need to set the color scheme first. In your vimrc, you can just do this:
 
-This color scheme also has custom colors defined for the following plugins:
+colorscheme lucius
+LuciusBlack
 
-* vimwiki (vimscript #2226)
-* tagbar (vimscript #3465)
+You can still just set the background variable and then set the color scheme. This will default to LuciusDark for 'dark' and LuciusLight for 'light'.
+
+
+Options:
+
+The presets available cover most of the options. You can, however, customize things by setting the following variables yourself:
+
+g:lucius_style  (default: 'dark')
+
+Set this option to either 'light' or 'dark' for your desired color scheme. It has the same effect as setting the background.
+
+g:lucius_contrast  (default: 'normal')
+
+This option determines the contrast to use for text/ui elements. It can be set to 'low', 'normal', or 'high'. At this time there is no 'high' for the light scheme.
+
+g:lucius_contrast_bg  (default: 'normal')
+
+Setting this option makes the background a higher contrast. Current settings are 'normal' and 'high'.
+
+g:lucius_use_bold (default: 1)
+
+Setting this will cause the color scheme to use bold fonts for some items.
+
+g:lucius_use_underline (default: 1)
+
+Setting this will cause the color scheme to use underlined fonts for some items.
