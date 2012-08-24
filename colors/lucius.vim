@@ -1,28 +1,25 @@
 " ============================================================================
 " Name:     Lucius vim color scheme
 " Author:   Jonathan Filip <jfilip1024@gmail.com>
-" Version:  8.0.0
+" Version:  8.1.0
 " ----------------------------------------------------------------------------
 "
 " Light and dark color scheme for GUI and 256 color terminal.
 "
-" This color scheme was started in 2008 as a combination of my favorite
-" parts from moria, oceandeep, peaksea, wombat, and zenburn. It has since
-" been refined as its own color scheme that is identical in gvim and 256
-" color vim. There are also different options available to customize the
-" appearance. 
+" There are several options available to customize the color scheme to your
+" own tastes. This is particularly useful when you have to work in different
+" environments at different times (home, work, day, night, etc).
 "
-" Originally, there were 3 variations: dark, light, and dark_dim.
-" As I kept wanting to tweak things for different environments (home,
-" office, day, night, etc), I changed things to allow for more control. For
-" both the light and dark schemes, you can choose a more bold or soft
-" background as well as the contrast of the text itself. You can either set
-" all the options manually or choose one of the presets available.
+" The GUI and 256 color terminal versions of this color scheme are identical.
+"
+" You can set up the color scheme by manually setting the options you want or
+" by choosing one of the presets defined. These presets are loaded after you
+" first source the color scheme file and are all commands that start with
+" 'Lucius'.
 "
 " I have also started to create color schemes for different applications. I
 " have been using them for PuTTY, iTerm2, and Visual Studio, but will keep
-" adding more as I go along (feel free to submit any that should be added).
-" You can find the files for these on Github:
+" adding more as I go along. You can find the files for these on Github:
 "
 " https://github.com/jonathanfilip/lucius
 "
@@ -33,16 +30,16 @@
 " There are screenshots of each preset below:
 "
 " * LuciusDark (dark default): http://i.imgur.com/LsZbF.png
-" * LuciusDark2: http://i.imgur.com/e70i9.png
-" * LuciusDarkDim: http://i.imgur.com/Hmw8s.png
+" * LuciusDarkHighContrast: http://i.imgur.com/e70i9.png
+" * LuciusDarkLowContrast: http://i.imgur.com/Hmw8s.png
 " * LuciusBlack: http://i.imgur.com/iD4ri.png
-" * LuciusBlack2: http://i.imgur.com/lHvTJ.png
-" * LuciusBlackDim: http://i.imgur.com/oZLkg.png
+" * LuciusBlackHighContrast: http://i.imgur.com/lHvTJ.png
+" * LuciusBlackLowContrast: http://i.imgur.com/oZLkg.png
 "
 " * LuciusLight (light default): http://i.imgur.com/soYD8.png
-" * LuciusLightBright: http://i.imgur.com/95I86.png
+" * LuciusLightLowContrast: http://i.imgur.com/95I86.png
 " * LuciusWhite: http://i.imgur.com/wDzkz.png
-" * LuciusWhiteBright: http://i.imgur.com/jlUf4.png
+" * LuciusWhiteLowContrast: http://i.imgur.com/jlUf4.png
 "
 " To use the presets, you just need to set the color scheme first. In your
 " vimrc, you can just do this:
@@ -50,30 +47,31 @@
 " colorscheme lucius
 " LuciusBlack
 "
+" You can still just set the background variable and then set the color
+" scheme. This will default to LuciusDark for 'dark' and LuciusLight for
+" 'light'.
+"
 "
 " Options:
 "
-" The presets available cover most of the options that you can set. Still, you
-" can customize things further by setting the following variables yourself:
+" The presets available cover most of the options. You can, however, customize
+" things by setting the following variables yourself:
 "
 " g:lucius_style  (default: 'dark')
 "
 " Set this option to either 'light' or 'dark' for your desired color scheme.
 " It has the same effect as setting the background.
 "
-" g:lucius_high_contrast  (default: 1)
+" g:lucius_contrast  (default: 'normal')
 "
-" This option determines the contrast used for text elements. Setting it to
-" 0 will use lower contrast items and setting it to 1 will use higher
-" contrast. You also have the option of setting it to 2, which will use the
-" same contrast as the 1 setting, except it will make the normal text
-" setting maximum contrast (white for dark scheme, black for light scheme).
+" This option determines the contrast to use for text/ui elements. It can be
+" set to 'low', 'normal', or 'high'. At this time there is no 'high' for the
+" light scheme.
 "
-" g:lucius_high_contrast_bg  (default: 0)
+" g:lucius_contrast_bg  (default: 'normal')
 "
-" Setting this option makes the background a higher contrast. For the light
-" scheme, it becomes a white background. For the dark scheme, it becomes a
-" much darker color (almost black).
+" Setting this option makes the background a higher contrast. Current settings
+" are 'normal' and 'high'.
 "
 " g:lucius_use_bold (default: 1)
 "
@@ -104,29 +102,18 @@ else
     let s:style = &background
 endif
 
-" Backward compatibility with v7
-if s:style == "dark_dim"
-    let s:style = "dark"
-endif
-
 exec "set background=" . s:style
 
-if exists("g:lucius_high_contrast")
-    let s:high_contrast = g:lucius_high_contrast
+if exists("g:lucius_contrast")
+    let s:contrast = g:lucius_contrast
 else
-    let s:high_contrast = 1
+    let s:contrast = "normal"
 endif
 
-if exists("g:lucius_high_contrast_bg")
-    let s:high_contrast_bg = g:lucius_high_contrast_bg
+if exists("g:lucius_contrast_bg")
+    let s:contrast_bg = g:lucius_contrast_bg
 else
-    let s:high_contrast_bg = 0
-endif
-
-" Backward compatibility with v7
-if exists("g:lucius_style") && g:lucius_style == "dark_dim"
-    let s:high_contrast = 0
-    let s:high_contrast_bg = 0
+    let s:contrast_bg = "normal"
 endif
 
 if exists("g:lucius_use_bold")
@@ -280,24 +267,20 @@ endfor
 " ----------------------------------------------------------------------------
 
 if s:style == "light"
-    if s:high_contrast > 0
-        if s:high_contrast > 1
-            hi Normal       guifg=#000000
-        else
-            hi Normal       guifg=#444444
-        endif
-    else
+    if s:contrast == "high"
+        hi Normal       guifg=#000000
+    elseif s:contrast == "low"
         hi Normal       guifg=#626262
+    else
+        hi Normal       guifg=#444444
     endif
 else
-    if s:high_contrast > 0
-        if s:high_contrast > 1
-            hi Normal       guifg=#eeeeee
-        else
-            hi Normal       guifg=#d7d7d7
-        endif
-    else
+    if s:contrast == "high"
+        hi Normal       guifg=#eeeeee
+    elseif s:contrast == "low"
         hi Normal       guifg=#bcbcbc
+    else
+        hi Normal       guifg=#d7d7d7
     endif
 endif
 
@@ -307,13 +290,13 @@ endif
 " ----------------------------------------------------------------------------
 
 if s:style == "light"
-    if s:high_contrast_bg == 1
+    if s:contrast_bg == "high"
         hi Normal                       guibg=#ffffff
     else
         hi Normal                       guibg=#eeeeee
     endif
 else
-    if s:high_contrast_bg == 1
+    if s:contrast_bg == "high"
         hi Normal                       guibg=#121212
     else
         hi Normal                       guibg=#303030
@@ -330,17 +313,7 @@ hi Question     guifg=fg
 if s:style == "light"
     hi NonText      guifg=#afafd7
     hi SpecialKey   guifg=#afd7af
-    if s:high_contrast > 0
-        hi Comment      guifg=#808080
-        hi Constant     guifg=#af5f00
-        hi Directory    guifg=#00875f
-        hi Identifier   guifg=#008700
-        hi PreProc      guifg=#008787
-        hi Special      guifg=#870087
-        hi Statement    guifg=#005faf
-        hi Title        guifg=#005faf
-        hi Type         guifg=#005f87
-    else
+    if s:contrast == "low"
         hi Comment      guifg=#9e9e9e
         hi Constant     guifg=#d78700
         hi Directory    guifg=#00af87
@@ -350,33 +323,21 @@ if s:style == "light"
         hi Statement    guifg=#0087d7
         hi Title        guifg=#0087d7
         hi Type         guifg=#0087af
+    else
+        hi Comment      guifg=#808080
+        hi Constant     guifg=#af5f00
+        hi Directory    guifg=#00875f
+        hi Identifier   guifg=#008700
+        hi PreProc      guifg=#008787
+        hi Special      guifg=#870087
+        hi Statement    guifg=#005faf
+        hi Title        guifg=#005faf
+        hi Type         guifg=#005f87
     endif
 else
     hi NonText      guifg=#5f5f87
     hi SpecialKey   guifg=#5f875f
-    if s:high_contrast > 0
-		if s:high_contrast > 1
-			hi Comment      guifg=#8a8a8a
-			hi Constant     guifg=#ffffd7
-			hi Directory    guifg=#d7ffd7
-			hi Identifier   guifg=#d7ffaf
-			hi PreProc      guifg=#afffd7
-			hi Special      guifg=#ffd7ff
-			hi Statement    guifg=#afffff
-			hi Title        guifg=#87d7ff
-			hi Type         guifg=#afffff
-		else
-			hi Comment      guifg=#808080
-			hi Constant     guifg=#d7d7af
-			hi Directory    guifg=#afd7af
-			hi Identifier   guifg=#afd787
-			hi PreProc      guifg=#87d7af
-			hi Special      guifg=#d7afd7
-			hi Statement    guifg=#87d7ff
-			hi Title        guifg=#5fafd7
-			hi Type         guifg=#87d7d7
-		endif
-    else
+    if s:contrast == "low"
         hi Comment      guifg=#6c6c6c
         hi Constant     guifg=#afaf87
         hi Directory    guifg=#87af87
@@ -386,6 +347,26 @@ else
         hi Statement    guifg=#5fafd7
         hi Title        guifg=#00afd7
         hi Type         guifg=#5fafaf
+    elseif s:contrast == "high"
+        hi Comment      guifg=#8a8a8a
+        hi Constant     guifg=#ffffd7
+        hi Directory    guifg=#d7ffd7
+        hi Identifier   guifg=#d7ffaf
+        hi PreProc      guifg=#afffd7
+        hi Special      guifg=#ffd7ff
+        hi Statement    guifg=#afffff
+        hi Title        guifg=#87d7ff
+        hi Type         guifg=#afffff
+    else
+        hi Comment      guifg=#808080
+        hi Constant     guifg=#d7d7af
+        hi Directory    guifg=#afd7af
+        hi Identifier   guifg=#afd787
+        hi PreProc      guifg=#87d7af
+        hi Special      guifg=#d7afd7
+        hi Statement    guifg=#87d7ff
+        hi Title        guifg=#5fafd7
+        hi Type         guifg=#87d7d7
     endif
 endif
 
@@ -407,17 +388,17 @@ if s:style == "light"
     hi MatchParen   guifg=NONE      guibg=#5fd7d7
     hi Search       guifg=fg        guibg=#ffaf00
     hi Visual                       guibg=#afd7ff
-    if s:high_contrast > 0
-        hi Cursor                       guibg=#5f87af
-        hi CursorIM                     guibg=#5f87af
-        hi Error        guifg=#af0000   guibg=#d7afaf
-        hi Todo         guifg=#875f00   guibg=#ffffaf
-    else
+    if s:contrast == "low"
         hi Cursor                       guibg=#87afd7
         hi CursorIM                     guibg=#87afd7
         hi Error        guifg=#d70000   guibg=#ffd7d7
         hi Todo         guifg=#af8700   guibg=#ffffaf
-    end
+    else
+        hi Cursor                       guibg=#5f87af
+        hi CursorIM                     guibg=#5f87af
+        hi Error        guifg=#af0000   guibg=#d7afaf
+        hi Todo         guifg=#875f00   guibg=#ffffaf
+    endif
 else
     hi CursorColumn                 guibg=#444444
     hi CursorLine                   guibg=#444444
@@ -425,25 +406,7 @@ else
     hi MatchParen   guifg=bg
     hi Search       guifg=bg
     hi Visual                       guibg=#005f87
-    if s:high_contrast > 0
-		if s:high_contrast > 1
-			hi Cursor                       guibg=#afd7ff
-			hi CursorIM                     guibg=#afd7ff
-			hi Error        guifg=#ffafaf   guibg=#af0000
-			hi IncSearch                    guibg=#87ffff
-			hi MatchParen                   guibg=#d7ff87
-			hi Search                       guibg=#ffaf5f
-			hi Todo         guifg=#ffff87   guibg=#87875f
-		else
-			hi Cursor                       guibg=#87afd7
-			hi CursorIM                     guibg=#87afd7
-			hi Error        guifg=#ff8787   guibg=#870000
-			hi IncSearch                    guibg=#5fd7d7
-			hi MatchParen                   guibg=#afd75f
-			hi Search                       guibg=#d78700
-			hi Todo         guifg=#d7d75f   guibg=#5f5f00
-		endif
-    else
+    if s:contrast == "low"
         hi Cursor                       guibg=#5f87af
         hi CursorIM                     guibg=#5f87af
         hi Error        guifg=#d75f5f   guibg=#870000
@@ -451,6 +414,22 @@ else
         hi MatchParen                   guibg=#87af5f
         hi Search                       guibg=#d78700
         hi Todo         guifg=#afaf00   guibg=#5f5f00
+    elseif s:contrast == "high"
+        hi Cursor                       guibg=#afd7ff
+        hi CursorIM                     guibg=#afd7ff
+        hi Error        guifg=#ffafaf   guibg=#af0000
+        hi IncSearch                    guibg=#87ffff
+        hi MatchParen                   guibg=#d7ff87
+        hi Search                       guibg=#ffaf5f
+        hi Todo         guifg=#ffff87   guibg=#87875f
+    else
+        hi Cursor                       guibg=#87afd7
+        hi CursorIM                     guibg=#87afd7
+        hi Error        guifg=#ff8787   guibg=#870000
+        hi IncSearch                    guibg=#5fd7d7
+        hi MatchParen                   guibg=#afd75f
+        hi Search                       guibg=#d78700
+        hi Todo         guifg=#d7d75f   guibg=#5f5f00
     endif
 endif
 
@@ -462,30 +441,28 @@ endif
 hi ModeMsg      guifg=fg
 hi Question     guifg=fg
 if s:style == "light"
-    if s:high_contrast > 0
-        hi ErrorMsg     guifg=#af0000
-        hi MoreMsg      guifg=#005fd7
-        hi WarningMsg   guifg=#af5f00
-    else
+    if s:contrast == "low"
         hi ErrorMsg     guifg=#d70000
         hi MoreMsg      guifg=#0087ff
         hi WarningMsg   guifg=#d78700
+    else
+        hi ErrorMsg     guifg=#af0000
+        hi MoreMsg      guifg=#005fd7
+        hi WarningMsg   guifg=#af5f00
     endif
 else
-    if s:high_contrast > 0
-		if s:high_contrast > 1
-			hi ErrorMsg     guifg=#ff8787
-			hi MoreMsg      guifg=#87ffff
-			hi WarningMsg   guifg=#ffaf87
-		else
-			hi ErrorMsg     guifg=#ff5f5f
-			hi MoreMsg      guifg=#5fd7d7
-			hi WarningMsg   guifg=#d7875f
-		endif
-    else
+    if s:contrast == "low"
         hi ErrorMsg     guifg=#d75f5f
         hi MoreMsg      guifg=#00afaf
         hi WarningMsg   guifg=#af875f
+    elseif s:contrast == "high"
+        hi ErrorMsg     guifg=#ff8787
+        hi MoreMsg      guifg=#87ffff
+        hi WarningMsg   guifg=#ffaf87
+    else
+        hi ErrorMsg     guifg=#ff5f5f
+        hi MoreMsg      guifg=#5fd7d7
+        hi WarningMsg   guifg=#d7875f
     endif
 endif
 
@@ -514,20 +491,7 @@ if s:style == "light"
     hi TabLineFill  guifg=#b2b2b2
     hi VertSplit    guifg=#e4e4e4
     hi WildMenu                     guibg=#afd7ff
-    if s:high_contrast > 0
-        hi FoldColumn   guifg=#626262
-        hi Folded       guifg=#626262
-        hi Pmenu                        guibg=#808080
-        hi PmenuSbar    guifg=#808080   guibg=#444444
-        hi PmenuThumb                   guibg=#9e9e9e
-        hi SignColumn   guifg=#626262
-        hi StatusLine                   guibg=#808080
-        hi StatusLineNC                 guibg=#808080
-        hi TabLine                      guibg=#808080
-        hi TabLineFill                  guibg=#808080
-        hi TabLineSel                   guibg=#afd7ff
-        hi VertSplit                    guibg=#808080
-    else
+    if s:contrast == "low"
         hi FoldColumn   guifg=#808080
         hi Folded       guifg=#808080
         hi Pmenu                        guibg=#9e9e9e
@@ -540,6 +504,19 @@ if s:style == "light"
         hi TabLineFill                  guibg=#9e9e9e
         hi TabLineSel                   guibg=#afd7ff
         hi VertSplit                    guibg=#9e9e9e
+    else
+        hi FoldColumn   guifg=#626262
+        hi Folded       guifg=#626262
+        hi Pmenu                        guibg=#808080
+        hi PmenuSbar    guifg=#808080   guibg=#444444
+        hi PmenuThumb                   guibg=#9e9e9e
+        hi SignColumn   guifg=#626262
+        hi StatusLine                   guibg=#808080
+        hi StatusLineNC                 guibg=#808080
+        hi TabLine                      guibg=#808080
+        hi TabLineFill                  guibg=#808080
+        hi TabLineSel                   guibg=#afd7ff
+        hi VertSplit                    guibg=#808080
     endif
 else
     hi ColorColumn                  guibg=#87875f
@@ -553,35 +530,7 @@ else
     hi TabLineFill  guifg=#444444
     hi VertSplit    guifg=#626262
     hi WildMenu                     guibg=#005f87
-    if s:high_contrast > 0
-		if s:high_contrast > 1
-			hi FoldColumn   guifg=#c6c6c6
-			hi Folded       guifg=#c6c6c6
-			hi Pmenu                        guibg=#bcbcbc
-			hi PmenuSbar    guifg=#bcbcbc   guibg=#dadada
-			hi PmenuThumb                   guibg=#8a8a8a
-			hi SignColumn   guifg=#bcbcbc
-			hi StatusLine                   guibg=#bcbcbc
-			hi StatusLineNC                 guibg=#bcbcbc
-			hi TabLine                      guibg=#bcbcbc
-			hi TabLineFill                  guibg=#bcbcbc
-			hi TabLineSel                   guibg=#0087af
-			hi VertSplit                    guibg=#bcbcbc
-		else
-			hi FoldColumn   guifg=#bcbcbc
-			hi Folded       guifg=#bcbcbc
-			hi Pmenu                        guibg=#b2b2b2
-			hi PmenuSbar    guifg=#b2b2b2   guibg=#d0d0d0
-			hi PmenuThumb                   guibg=#808080
-			hi SignColumn   guifg=#b2b2b2
-			hi StatusLine                   guibg=#b2b2b2
-			hi StatusLineNC                 guibg=#b2b2b2
-			hi TabLine                      guibg=#b2b2b2
-			hi TabLineFill                  guibg=#b2b2b2
-			hi TabLineSel                   guibg=#005f87
-			hi VertSplit                    guibg=#b2b2b2
-		endif
-    else
+    if s:contrast == "low"
         hi FoldColumn   guifg=#a8a8a8
         hi Folded       guifg=#a8a8a8
         hi Pmenu                        guibg=#8a8a8a
@@ -594,6 +543,32 @@ else
         hi TabLineFill                  guibg=#8a8a8a
         hi TabLineSel                   guibg=#005f87
         hi VertSplit                    guibg=#8a8a8a
+    elseif s:contrast == "high"
+        hi FoldColumn   guifg=#c6c6c6
+        hi Folded       guifg=#c6c6c6
+        hi Pmenu                        guibg=#bcbcbc
+        hi PmenuSbar    guifg=#bcbcbc   guibg=#dadada
+        hi PmenuThumb                   guibg=#8a8a8a
+        hi SignColumn   guifg=#bcbcbc
+        hi StatusLine                   guibg=#bcbcbc
+        hi StatusLineNC                 guibg=#bcbcbc
+        hi TabLine                      guibg=#bcbcbc
+        hi TabLineFill                  guibg=#bcbcbc
+        hi TabLineSel                   guibg=#0087af
+        hi VertSplit                    guibg=#bcbcbc
+    else
+        hi FoldColumn   guifg=#bcbcbc
+        hi Folded       guifg=#bcbcbc
+        hi Pmenu                        guibg=#b2b2b2
+        hi PmenuSbar    guifg=#b2b2b2   guibg=#d0d0d0
+        hi PmenuThumb                   guibg=#808080
+        hi SignColumn   guifg=#b2b2b2
+        hi StatusLine                   guibg=#b2b2b2
+        hi StatusLineNC                 guibg=#b2b2b2
+        hi TabLine                      guibg=#b2b2b2
+        hi TabLineFill                  guibg=#b2b2b2
+        hi TabLineSel                   guibg=#005f87
+        hi VertSplit                    guibg=#b2b2b2
     endif
 endif
 
@@ -611,20 +586,20 @@ if s:style == "light"
     hi DiffChange                   guibg=#d7d7af
     hi DiffDelete                   guibg=#d7afaf
     hi DiffText                     guibg=#d7d7af
-    if s:high_contrast > 0
-        hi DiffText     guifg=#d75f00
-    else
+    if s:contrast == "low"
         hi DiffText     guifg=#ff8700
+    else
+        hi DiffText     guifg=#d75f00
     endif
 else
     hi DiffAdd                      guibg=#5f875f
     hi DiffChange                   guibg=#87875f
     hi DiffDelete                   guibg=#875f5f
     hi DiffText                     guibg=#87875f
-    if s:high_contrast > 0
-        hi DiffText     guifg=#ffff87
-    else
+    if s:contrast == "low"
         hi DiffText     guifg=#d7d75f
+    else
+        hi DiffText     guifg=#ffff87
     endif
 endif
 
@@ -736,65 +711,39 @@ hi link VimwikiHeader6 BType
 " Preset Commands:
 " ============================================================================
 
-command! LuciusLight
-            \ let g:lucius_high_contrast = 1 |
-            \ let g:lucius_high_contrast_bg = 0 |
-            \ let g:lucius_style = "light" |
-            \ colorscheme lucius
+function! SetLucius(style, contrast, contrast_bg)
+    let g:lucius_style = a:style
+    let g:lucius_contrast = a:contrast
+    let g:lucius_contrast_bg = a:contrast_bg
+endfunction
 
-command! LuciusLightBright
-            \ let g:lucius_high_contrast = 0 |
-            \ let g:lucius_high_contrast_bg = 0 |
-            \ let g:lucius_style = "light" |
-            \ colorscheme lucius
+command! LuciusLight call SetLucius("light", "normal", "normal")
+            \ | colorscheme lucius
+command! LuciusLightLowContrast call SetLucius("light", "low", "normal")
+            \ | colorscheme lucius
+command! LuciusLightHighContrast call SetLucius("light", "high", "normal")
+            \ | colorscheme lucius
 
-command! LuciusWhite
-            \ let g:lucius_high_contrast = 1 |
-            \ let g:lucius_high_contrast_bg = 1 |
-            \ let g:lucius_style = "light" |
-            \ colorscheme lucius
+command! LuciusWhite call SetLucius("light", "normal", "high")
+            \ | colorscheme lucius
+command! LuciusWhiteLowContrast call SetLucius("light", "low", "high")
+            \ | colorscheme lucius
+command! LuciusWhiteHighContrast call SetLucius("light", "high", "high")
+            \ | colorscheme lucius
 
-command! LuciusWhiteBright
-            \ let g:lucius_high_contrast = 0 |
-            \ let g:lucius_high_contrast_bg = 1 |
-            \ let g:lucius_style = "light" |
-            \ colorscheme lucius
+command! LuciusDark call SetLucius("dark", "normal", "normal")
+            \ | colorscheme lucius
+command! LuciusDarkLowContrast call SetLucius("dark", "low", "normal")
+            \ | colorscheme lucius
+command! LuciusDarkHighContrast call SetLucius("dark", "high", "normal")
+            \ | colorscheme lucius
 
-command! LuciusDark
-            \ let g:lucius_high_contrast = 1 |
-            \ let g:lucius_high_contrast_bg = 0 |
-            \ let g:lucius_style = "dark" |
-            \ colorscheme lucius
-
-command! LuciusDark2
-            \ let g:lucius_high_contrast = 2 |
-            \ let g:lucius_high_contrast_bg = 0 |
-            \ let g:lucius_style = "dark" |
-            \ colorscheme lucius
-
-command! LuciusDarkDim
-            \ let g:lucius_high_contrast = 0 |
-            \ let g:lucius_high_contrast_bg = 0 |
-            \ let g:lucius_style = "dark" |
-            \ colorscheme lucius
-
-command! LuciusBlack
-            \ let g:lucius_high_contrast = 1 |
-            \ let g:lucius_high_contrast_bg = 1 |
-            \ let g:lucius_style = "dark" |
-            \ colorscheme lucius
-
-command! LuciusBlack2
-            \ let g:lucius_high_contrast = 2 |
-            \ let g:lucius_high_contrast_bg = 1 |
-            \ let g:lucius_style = "dark" |
-            \ colorscheme lucius
-
-command! LuciusBlackDim
-            \ let g:lucius_high_contrast = 0 |
-            \ let g:lucius_high_contrast_bg = 1 |
-            \ let g:lucius_style = "dark" |
-            \ colorscheme lucius
+command! LuciusBlack call SetLucius("dark", "normal", "high")
+            \ | colorscheme lucius
+command! LuciusBlackLowContrast call SetLucius("dark", "low", "high")
+            \ | colorscheme lucius
+command! LuciusBlackHighContrast call SetLucius("dark", "high", "high")
+            \ | colorscheme lucius
 
 " vim: tw=78
 
