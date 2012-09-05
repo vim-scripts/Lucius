@@ -1,7 +1,7 @@
 " ============================================================================
 " Name:     Lucius vim color scheme
 " Author:   Jonathan Filip <jfilip1024@gmail.com>
-" Version:  8.1.1
+" Version:  8.1.2
 " ----------------------------------------------------------------------------
 "
 " Light and dark color scheme for GUI and 256 color terminal.
@@ -96,19 +96,17 @@
 " Options:
 " ============================================================================
 
+unlet! g:colors_name
 hi clear
 if exists("syntax_on")
     syntax reset
 endif
-let colors_name="lucius"
 
 if exists("g:lucius_style")
     let s:style = g:lucius_style
 else
     let s:style = &background
 endif
-
-exec "set background=" . s:style
 
 if exists("g:lucius_contrast")
     let s:contrast = g:lucius_contrast
@@ -232,7 +230,6 @@ endfunction
 " ============================================================================
 
 let s:normal_items = [
-            \ "Normal",
             \ "ColorColumn", "Comment", "Constant", "Cursor", "CursorColumn",
             \ "CursorIM", "CursorLine", "CursorLineNr", "DiffAdd", "DiffChange",
             \ "DiffDelete", "Directory", "Error", "ErrorMsg", "Identifier",
@@ -257,20 +254,17 @@ let s:undercurl_items = [
             \ "SpellBad", "SpellCap", "SpellLocal", "SpellRare"
             \ ]
 
-" Clear default settings
-for s:item in s:normal_items + s:bold_items + s:underline_items + s:undercurl_items
-    exec "hi " . s:item . " guifg=NONE guibg=NONE gui=none"
-                \ . " ctermfg=NONE ctermbg=NONE cterm=none term=none"
-endfor
-
 
 " ============================================================================
 " Color Definitions:
 " ============================================================================
 
 " ----------------------------------------------------------------------------
-" Default Foreground:
+" 'Normal' Colors:
 " ----------------------------------------------------------------------------
+
+hi clear Normal
+hi Normal gui=none cterm=none term=none
 
 if s:style == "light"
     if s:contrast == "high"
@@ -290,11 +284,6 @@ else
     endif
 endif
 
-
-" ----------------------------------------------------------------------------
-" Default Background:
-" ----------------------------------------------------------------------------
-
 if s:style == "light"
     if s:contrast_bg == "high"
         hi Normal                       guibg=#ffffff
@@ -308,6 +297,23 @@ else
         hi Normal                       guibg=#303030
     endif
 endif
+
+call s:AddCterm("Normal")
+
+
+" ----------------------------------------------------------------------------
+" Extra setup
+" ----------------------------------------------------------------------------
+
+exec "set background=" . s:style
+
+" Clear default settings
+for s:item in s:normal_items + s:bold_items + s:underline_items + s:undercurl_items
+    exec "hi " . s:item . " guifg=NONE guibg=NONE gui=none"
+                \ . " ctermfg=NONE ctermbg=NONE cterm=none term=none"
+endfor
+
+let g:colors_name="lucius"
 
 
 " ----------------------------------------------------------------------------
@@ -639,10 +645,6 @@ hi Underlined   guifg=fg
 " Text Emphasis:
 " ============================================================================
 
-for s:item in s:normal_items
-    exec "hi " . s:item . " gui=none cterm=none term=none"
-endfor
-
 if s:use_bold == 1
     for s:item in s:bold_items
         exec "hi " . s:item . " gui=bold cterm=bold term=none"
@@ -666,8 +668,6 @@ endfor
 " ============================================================================
 " Cterm Colors:
 " ============================================================================
-
-call s:AddCterm("Normal")
 
 for s:item in s:normal_items + s:bold_items + s:underline_items
     call s:AddCterm(s:item)
